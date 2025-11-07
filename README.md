@@ -25,6 +25,7 @@
 ---
 
 ## 📂 Структура Проєкту
+```bash
 
 src/
 ├── components/
@@ -40,7 +41,7 @@ src/
 │   └── movie.ts         # Інтерфейси TypeScript
 ├── main.tsx
 └── index.css
----
+```
 
 ## ⚙️ Налаштування Локально
 
@@ -49,10 +50,13 @@ src/
 ```bash
 git clone [https://github.com/Oleksandr-Sulyma/03-react-movies.git](https://github.com/Oleksandr-Sulyma/03-react-movies.git)
 cd 03-react-movies
+```
+
 ### 2. Встановлення залежностей
 
 ```bash
 npm install
+```
 
 ### 3. Створення `.env` файлу (Конфігурація API)
 
@@ -65,6 +69,7 @@ VITE_TMDB_TOKEN=your_tmdb_access_token
 
 ```bash
 npm run dev
+```
 
 Відкрийте у браузері: `http://localhost:5173`
 
