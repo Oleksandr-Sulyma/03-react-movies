@@ -1,75 +1,134 @@
-# React + TypeScript + Vite
+# 🎬 React Movies App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Простий застосунок для пошуку фільмів, створений за допомогою **React + TypeScript + Vite**.  
+Користувач може ввести назву фільму, отримати результати з **The Movie Database (TMDB)** API  
+та переглянути деталі кожного фільму у модальному вікні.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Демо
 
-## React Compiler
+🔗 **Live demo:** [https://03-react-movies-yjo9.vercel.app/](https://03-react-movies-yjo9.vercel.app/)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## 🧩 Технології
 
-## Expanding the ESLint configuration
+- ⚛️ **React 18**
+- 🧠 **TypeScript**
+- ⚡ **Vite**
+- 🎨 **CSS Modules**
+- 🔥 **react-hot-toast** (сповіщення)
+- ⏳ **axios** (запити до API)
+- 🎞️ **The Movie Database API (TMDB)**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📂 Структура проєкту
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+````bash
+src/
+ ├── components/
+ │   ├── App/
+ │   ├── SearchBar/
+ │   ├── MovieGrid/
+ │   ├── MovieModal/
+ │   ├── Loader/
+ │   └── ErrorMessage/
+ ├── services/
+ │   └── movieService.ts
+ ├── types/
+ │   └── movie.ts
+ ├── main.tsx
+ └── index.css
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ⚙️ Налаштування локально
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 1. Клонування репозиторію
+```bash
+git clone https://github.com/Oleksandr-Sulyma/03-react-movies.git
+cd 03-react-movies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Налаштування локально
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Клонування репозиторію**
+git clone https://github.com/Oleksandr-Sulyma/03-react-movies.git
+
+cd 03-react-movies
+
+
+2. **Встановлення залежностей**
+
+npm install
+
+
+3. **Створення .env файлу**
+У корені проєкту створи файл `.env` і додай:
+
+VITE_TMDB_TOKEN=your_tmdb_access_token
+
+
+👉 **Увага:** використовується Bearer Token, який можна знайти у твоєму
+TMDB акаунті → Settings → API → Read Access Token (v4 auth).
+
+4. **Запуск локально**
+
+npm run dev
+
+
+Відкрий у браузері:
+
+http://localhost:5173
+
+
+---
+
+## 🧱 Скріпти
+
+| Команда | Опис |
+|----------|------|
+| npm run dev | Запуск у режимі розробки |
+| npm run build | Збірка проєкту для продакшену |
+| npm run preview | Перегляд зібраного застосунку локально |
+
+---
+
+## 🧰 Використання API
+
+Дані беруться з The Movie Database API.
+Використовується ендпоінт:
+
+GET https://api.themoviedb.org/3/search/movie
+
+
+Параметри запиту:
+- query — пошуковий запит
+- language — мова (en-US)
+- include_adult — виключення дорослого контенту (false)
+- page — номер сторінки
+
+---
+
+## 💡 Функціональність
+
+✅ Пошук фільмів за назвою
+✅ Відображення результатів у вигляді карток
+✅ Модальне вікно з деталями фільму
+✅ Повідомлення про відсутність результатів
+✅ Завантажувач та обробка помилок
+✅ Адаптивна верстка
+
+---
+
+## 🧑‍💻 Автор
+
+**Олександр Сулима**
+🔗 GitHub профіль: [Oleksandr-Sulyma](https://github.com/Oleksandr-Sulyma)
+
+---
+
+## 📜 Ліцензія
+
+Проєкт створений у навчальних цілях.
+Усі права на API належать TMDB.
+````
