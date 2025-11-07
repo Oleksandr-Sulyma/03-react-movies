@@ -46,7 +46,7 @@ export default function App() {
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
       {movies.length > 0 && (
-        <MovieGrid movies={movies} onSelectMovie={setSelectedMovie} />
+        <MovieGrid movies={movies} onSelect={setSelectedMovie} />
       )}
       {selectedMovie && (
         <MovieModal
