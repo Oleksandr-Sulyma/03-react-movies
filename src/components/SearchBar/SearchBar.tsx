@@ -1,16 +1,17 @@
 import styles from "./SearchBar.module.css";
 import toast, { Toaster } from "react-hot-toast";
 interface SearchBarProps {
-  onSearch: (query: string) => void;
+  onSubmit: (query: string) => void;
 }
 
-export default function SearchBar({ onSearch }: SearchBarProps) {
+export default function SearchBar({ onSubmit }: SearchBarProps) {
   const handleSubmit = (formData: FormData) => {
     const query = formData.get("query") as string;
     if (!query?.trim()) {
       toast.error("Please enter your search query.");
+      return;
     }
-    onSearch(query);
+    onSubmit(query);
   };
 
   return (
@@ -36,7 +37,6 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
           <button className={styles.button} type="submit">
             Search
           </button>
-          <Toaster position="top-center" reverseOrder={false} />
         </form>
       </div>
     </header>
